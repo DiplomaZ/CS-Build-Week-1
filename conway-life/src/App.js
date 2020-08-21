@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <div>
         <h1>Generation: X</h1>
-        <AnimationTest width="700" height="700" size={34} />
+        <AnimationTest width="3" height="3" size={34} />
       </div>
       <div className="presets"> z z z z</div>
       <img src={logo} className="App-logo" alt="logo" />

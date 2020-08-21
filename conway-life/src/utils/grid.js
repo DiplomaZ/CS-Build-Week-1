@@ -19,10 +19,11 @@ export class Grid {
     // } else {
     //   this.context.clearRect(this.gridX, this.gridY, this.size, this.size);
     // }
-
+    const newThing = [];
     //check left and right of current index like: arr[i][j-1]
     let livingNeighbors = 0;
     for (let i = 0; i < this.l; i++) {
+      newThing.push([]);
       for (let j = 0; j < this.w; j++) {
         //check left neighbor
         if (j > 0 && this.thing[i][j - 1].alive) {
@@ -71,10 +72,31 @@ export class Grid {
         if (i > 0 && j < this.w - 1 && this.thing[i - 1][j + 1].alive) {
           livingNeighbors += 1;
         }
-        this.thing[i][j].livingNeighbors = livingNeighbors;
+        const { gridX, gridY, ...others } = this.thing[i][j];
+        let cell = new Cell({ ...others, alive: this.thing[i][j].alive });
+        cell.livingNeighbors = livingNeighbors;
         livingNeighbors = 0;
+        console.log("old cell", this.thing[i][j]);
+        console.log("cell:", cell);
+        console.log("cell is alive:", cell.alive === true);
+        if (cell.alive === true) {
+          if (cell.livingNeighbors < 2 || cell.livingNeighbors > 3) {
+            console.log(cell);
+            console.log("he gotta die sorry");
+            //cell.alive = false;
+          }
+        } else {
+          if (cell.livingNeighbors === 3) {
+            // cell.resurrect();
+          }
+        }
+        newThing[i][j] = cell;
       }
     }
+
+    this.thing = newThing;
+
+    console.log(this.thing);
   }
 
   setUp() {
@@ -86,8 +108,12 @@ export class Grid {
           x: i,
           y: j,
           size: this.cellSize,
+          alive: Math.random() > 0.5,
         });
       }
     }
+    console.log(
+      "------------------------------------------------------------------------------------------------------------"
+    );
   }
 }

@@ -1,7 +1,7 @@
 export class Cell {
   // Set the size for each cell
 
-  constructor({ context, gridX, gridY, size, x, y }) {
+  constructor({ context, gridX, gridY, size, x, y, alive }) {
     this.context = context;
 
     // Store the position of this cell in the grid
@@ -11,7 +11,7 @@ export class Cell {
     this.x = x;
     this.y = y;
     // Make  squares alive
-    this.alive = Math.random() > 0.1;
+    this.alive = alive;
   }
 
   findGridPosition({ pL, pT }) {
@@ -19,6 +19,12 @@ export class Cell {
     this.gridY = this.y * this.size + pT + 1;
   }
 
+  die() {
+    this.alive = false;
+  }
+  resurrect() {
+    this.alive = true;
+  }
   draw({ pL, pT }) {
     // Draw a square, let the state determine the color
     this.findGridPosition({ pL, pT });

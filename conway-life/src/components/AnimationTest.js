@@ -7,7 +7,6 @@ import { drawGrid } from "../utils/drawGrid";
 import { Grid } from "../utils/grid";
 const AnimationTest = ({ width, height, cells, setCells, size }) => {
   const grid = new Grid({ l: height, w: width, cellSize: size });
-  grid.setUp();
 
   const canvasRef = useRef(null);
 
@@ -40,6 +39,7 @@ const AnimationTest = ({ width, height, cells, setCells, size }) => {
   //   doAnimation
   // );
   const getNextFrame = () => {
+    grid.setUp();
     grid.update();
     console.log(grid.thing);
     // grid object
