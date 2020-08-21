@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 export const useAnimationFrame = (timestamp, doAnimationCallBack) => {
   // set the prev time stamp
   const [prevTimeStamp, setTimeStamp] = useState(timestamp - 30);
-  const [continueAnimation, setContinueAnimation] = useState(true);
+  const [continueAnimation, setContinueAnimation] = useState(false);
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,6 @@ export const useAnimationFrame = (timestamp, doAnimationCallBack) => {
       if (continueAnimation) {
         requestAnimationFrame(onFrame);
       }
-      console.log("somehow continueanimation is ", continueAnimation);
       const elapsed = prevTimeStamp - timestamp;
       setTimeStamp(timestamp);
       console.log(`Current time: ${timestamp} ms, frame time: ${elapsed} ms`);
@@ -39,9 +38,6 @@ export const useAnimationFrame = (timestamp, doAnimationCallBack) => {
   const resumeAnimation = () => {
     setContinueAnimation(true);
   };
-  useEffect(() => {
-    // monitor remounts for debugging
-    console.log("REMOUNT TRIGGERED");
-  });
+
   return [cancelAnimation, resumeAnimation];
 };

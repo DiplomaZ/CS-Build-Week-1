@@ -6,18 +6,13 @@ import useWindowDimensions from "./hooks/getWindowDimensions";
 
 function App() {
   const { height, width } = useWindowDimensions();
-  const [cells, setCells] = useState({});
+  // const [cells, setCells] = useState({});
 
   return (
     <div className="App">
       <div>
         <h1>Generation: X</h1>
-        <AnimationTest
-          width="700"
-          height="700"
-          cells={cells}
-          setCells={setCells}
-        />
+        <AnimationTest width="700" height="700" size={34} />
       </div>
       <div className="presets"> z z z z</div>
       <img src={logo} className="App-logo" alt="logo" />

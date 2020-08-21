@@ -1,5 +1,6 @@
 import { Cell } from "./cell";
 import { useEffect } from "react";
+import { Grid } from "./grid";
 
 export const drawGrid = (
   context,
@@ -23,6 +24,14 @@ export const drawGrid = (
   let pB = pY / 2;
   let cellLeft = canvas.offsetLeft,
     cellTop = canvas.offsetTop;
+
+  let grid = new Grid({
+    w: nX,
+    l: nY,
+    cellSize: s,
+    context: context,
+  });
+  grid.whateverYouWant();
   context.strokeStyle = "lightgrey";
   context.beginPath();
 
@@ -68,36 +77,38 @@ export const drawGrid = (
         pB <= yClick &&
         yClick <= gridWidth - pT
       ) {
-        let xNum = Math.ceil(relX / s);
-        let yNum = Math.ceil(relY / s);
+        let x = Math.floor(relX / s);
+        let y = Math.floor(relY / s);
 
-        console.log(`x pos: ${xNum}`);
-        console.log(`y pos: ${yNum}`);
-        let gridX = xNum * s + pL - s + 1;
-        let gridY = yNum * s + pT - s + 1;
-        let squareNum = xNum + nX * (yNum - 1);
-        console.log("you clicked square number ", squareNum);
-        if (squareNum in cells) {
-          cells[squareNum].alive = false;
-          cells[squareNum].draw();
-          console.log("falseyS");
-          setCells({ ...cells, [squareNum]: 0 });
-        } else {
-          let cell = new Cell(context, gridX, gridY, s - 2, squareNum);
-          cell.draw();
-          console.log(
-            "modifying ",
-            cells,
-            "with squarenum ",
-            squareNum,
-            " and cell ",
-            cell
-          );
-          let bells = { frogs: "seventy two" };
-          let testObj = { ...bells, [squareNum]: cell };
-          console.log("test obj is ", testObj);
-          setCells({ ...bells, [squareNum]: cell });
-        }
+        console.log(`x pos: ${x}`);
+        console.log(`y pos: ${y}`);
+        // console.log(grid);
+        grid.thing[x][y].draw({ pL, pT });
+        // let gridX = xNum * s + pL - s + 1;
+        // let gridY = yNum * s + pT - s + 1;
+        // let squareNum = xNum + nX * (yNum - 1);
+        // console.log("you clicked square number ", squareNum);
+        // if (squareNum in cells) {
+        //   cells[squareNum].alive = false;
+        //   cells[squareNum].draw();
+        //   console.log("falseyS");
+        //   setCells({ ...cells, [squareNum]: 0 });
+        // } else {
+        //   let cell = new Cell(context, gridX, gridY, s - 2, squareNum);
+        //   cell.draw();
+        //   console.log(
+        //     "modifying ",
+        //     cells,
+        //     "with squarenum ",
+        //     squareNum,
+        //     " and cell ",
+        //     cell
+        //   );
+        //   let bells = { frogs: "seventy two" };
+        //   let testObj = { ...bells, [squareNum]: cell };
+        //   console.log("test obj is ", testObj);
+        //   setCells({ ...bells, [squareNum]: cell });
+        // }
 
         // context.fillRect(
         //   xNum * s + pL - s + 1,
