@@ -1,4 +1,5 @@
 import { Cell } from "./cell";
+import { patterns } from "./patterns";
 
 export class Grid {
   // Set the size for each Grid
@@ -11,6 +12,61 @@ export class Grid {
     this.cellSize = cellSize;
     this.pL = pL;
     this.pT = pT;
+  }
+
+  getPattern(patName, context) {
+    if (patName in patterns) {
+      this.clearAll(context);
+      let centerCoords = {
+        x: parseInt(this.w / 2 - 1),
+        y: parseInt(this.l / 2 - 1),
+      };
+      console.log("center coords are", centerCoords);
+      let width = patterns[patName].width;
+      let length = patterns[patName].length;
+      let patternStart = {
+        x: centerCoords.x - parseInt(width / 2),
+        y: centerCoords.y - parseInt(length / 2),
+      };
+      console.log("pattern starts at", patternStart);
+      console.log("pattern ois ", width, " wide");
+      console.log(
+        "x should never be greater than ",
+        patternStart.x + width,
+        " wide"
+      );
+      console.log(
+        "y should never be greater than ",
+        patternStart.y + length,
+        " tall"
+      );
+      let maxY = patternStart.y + length;
+      let maxX = patternStart.x + width;
+      let pString = patterns[patName].pattern;
+      let currentCoords = { ...patternStart };
+      for (let i = 0; i <= pString.length; i++) {
+        console.log(pString.charAt(i));
+        if (pString.charAt(i) === "*") {
+          // console.log("comapring ", currentCoords.x, " to ", maxX);
+          this.thing[currentCoords.x][currentCoords.y].resurrect(context);
+        }
+        if (currentCoords.x < maxX) {
+          console.log(currentCoords);
+          currentCoords.x += 1;
+        } else {
+          // console.log("resetting X to", patternStart.x);
+          currentCoords.x = patternStart.x;
+
+          if (currentCoords.y < maxY) {
+            currentCoords.y += 1;
+          }
+        }
+      }
+
+      //do stuff
+    } else {
+      //pattern not found or you mistyped it somewhere
+    }
   }
 
   update() {
