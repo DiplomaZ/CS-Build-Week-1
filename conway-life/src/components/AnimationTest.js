@@ -283,6 +283,26 @@ const AnimationTest = (props) => {
             let retObj = false;
             // setGens(0);
             retObj = grid.current.getPattern(
+              "popover",
+              canvasRef.current.getContext("2d"),
+              retObj
+            );
+            console.log(retObj);
+            if (retObj !== false) {
+              setAlert(`Structure is too large for your display/viewport!`);
+            } else {
+              setAlert(``);
+            }
+          }}
+        >
+          POPOVER
+        </Button>
+        <Button
+          className="userButton"
+          onClick={() => {
+            let retObj = false;
+            // setGens(0);
+            retObj = grid.current.getPattern(
               "Spaceship_295P5H1V1",
               canvasRef.current.getContext("2d"),
               retObj
@@ -296,6 +316,86 @@ const AnimationTest = (props) => {
           }}
         >
           MOTHERSHIP
+        </Button>
+        <Button
+          className="userButton"
+          onClick={() => {
+            let retObj = false;
+            // setGens(0);
+            retObj = grid.current.getPattern(
+              "volcanoes",
+              canvasRef.current.getContext("2d"),
+              retObj
+            );
+            console.log(retObj);
+            if (retObj !== false) {
+              setAlert(`Structure is too large for your display/viewport!`);
+            } else {
+              setAlert(``);
+            }
+          }}
+        >
+          VOLCANOES
+        </Button>
+        <Button
+          className="userButton"
+          onClick={() => {
+            let retObj = false;
+            // setGens(0);
+            retObj = grid.current.getPattern(
+              "puffership",
+              canvasRef.current.getContext("2d"),
+              retObj
+            );
+            console.log(retObj);
+            if (retObj !== false) {
+              setAlert(`Structure is too large for your display/viewport!`);
+            } else {
+              setAlert(``);
+            }
+          }}
+        >
+          PUFFERSHIP
+        </Button>
+        <Button
+          className="userButton"
+          onClick={() => {
+            let retObj = false;
+            // setGens(0);
+            retObj = grid.current.getPattern(
+              "orbital",
+              canvasRef.current.getContext("2d"),
+              retObj
+            );
+            console.log(retObj);
+            if (retObj !== false) {
+              setAlert(`Structure is too large for your display/viewport!`);
+            } else {
+              setAlert(``);
+            }
+          }}
+        >
+          ORBITAL
+        </Button>
+        <Button
+          className="userButton"
+          onClick={() => {
+            let retObj = false;
+            // setGens(0);
+            retObj = grid.current.getPattern(
+              "spacetimeTear",
+              canvasRef.current.getContext("2d"),
+              retObj
+            );
+            console.log(retObj);
+            if (retObj !== false) {
+              setAlert(`Structure is too large for your display/viewport!`);
+            } else {
+              setAlert(``);
+            }
+          }}
+        >
+          RIFT
         </Button>
         {/* <br />
         <Button className="userButton"
