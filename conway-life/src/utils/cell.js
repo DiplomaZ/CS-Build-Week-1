@@ -112,12 +112,7 @@ export class Cell {
     this.alive = false;
     // console.log("killing ", this);
     // console.log("one ded cell comin up");
-    this.context.clearRect(
-      this.gridX,
-      this.gridY - 1,
-      this.size,
-      this.size + 1
-    );
+    this.context.clearRect(this.gridX, this.gridY, this.size, this.size);
   }
 
   resurrect(context) {
@@ -144,12 +139,7 @@ export class Cell {
     } else {
       // console.log("ded");
       // console.log(this);
-      this.context.clearRect(
-        this.gridX,
-        this.gridY - 1,
-        this.size,
-        this.size + 1
-      );
+      this.context.clearRect(this.gridX, this.gridY, this.size, this.size);
     }
   }
 }
