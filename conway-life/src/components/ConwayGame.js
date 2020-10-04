@@ -276,7 +276,7 @@ const ConwayGame = (props) => {
             // setGens(genRef.current);
 
             grid.current.randomize(canvasRef.current.getContext("2d"));
-            // setAlert(``);
+            setAlert(``);
           }}
         >
           RANDOMIZE
@@ -321,7 +321,7 @@ const ConwayGame = (props) => {
             if (retObj !== false) {
               setAlert(`Structure is too large for your display/viewport!`);
             } else {
-              // setAlert(``);
+              setAlert(``);
             }
           }}
         >
@@ -343,7 +343,7 @@ const ConwayGame = (props) => {
             if (retObj !== false) {
               setAlert(`Structure is too large for your display/viewport!`);
             } else {
-              // setAlert(``);
+              setAlert(``);
             }
           }}
         >
@@ -365,7 +365,7 @@ const ConwayGame = (props) => {
             if (retObj !== false) {
               setAlert(`Structure is too large for your display/viewport!`);
             } else {
-              // setAlert(``);
+              setAlert(``);
             }
           }}
         >
@@ -387,7 +387,7 @@ const ConwayGame = (props) => {
             if (retObj !== false) {
               setAlert(`Structure is too large for your display/viewport!`);
             } else {
-              // setAlert(``);
+              setAlert(``);
             }
           }}
         >
@@ -409,7 +409,7 @@ const ConwayGame = (props) => {
             if (retObj !== false) {
               setAlert(`Structure is too large for your display/viewport!`);
             } else {
-              // setAlert(``);
+              setAlert(``);
             }
           }}
         >
@@ -431,7 +431,7 @@ const ConwayGame = (props) => {
             if (retObj !== false) {
               setAlert(`Structure is too large for your display/viewport!`);
             } else {
-              // setAlert(``);
+              setAlert(``);
             }
           }}
         >
@@ -453,7 +453,7 @@ const ConwayGame = (props) => {
             if (retObj !== false) {
               setAlert(`Structure is too large for your display/viewport!`);
             } else {
-              // setAlert(``);
+              setAlert(``);
             }
           }}
         >
@@ -475,7 +475,7 @@ const ConwayGame = (props) => {
             if (retObj !== false) {
               setAlert(`Structure is too large for your display/viewport!`);
             } else {
-              // setAlert(``);
+              setAlert(``);
             }
           }}
         >
