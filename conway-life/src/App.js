@@ -10,7 +10,7 @@ function App() {
   if (width > 1000) {
     pixelSize = 8;
   } else {
-    pixelSize = 4;
+    pixelSize = 6;
   }
   console.log(pixelSize);
   const [cellSizePx, setCellSizePx] = useState(pixelSize);
